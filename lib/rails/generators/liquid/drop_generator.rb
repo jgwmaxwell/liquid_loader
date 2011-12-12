@@ -10,7 +10,7 @@ module Liquid
 
       desc "This generator creates liquid drops for your models."
 
-      #generate_attributes if options.autodiscover?
+      generate_attributes
 
       def create_drop
         template "drop.rb", "app/drops/#{file_name}_drop.rb"
@@ -18,14 +18,8 @@ module Liquid
 
 
       private
-      def file_name
-        name.underscore
-      end
-      def class_name
-        name.camelize
-      end
       def generate_attributes
-          @attributes = class_name.constantize.attribute_names
+        @attributes = class_name.constantize.attribute_names
       end
     end
   end
