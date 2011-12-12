@@ -1,5 +1,3 @@
-require 'rails/generators/base'
-
 module Liquid
   module Generators
     class DropGenerator < Rails::Generators::NamedBase

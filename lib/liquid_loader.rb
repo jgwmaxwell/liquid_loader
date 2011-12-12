@@ -1,5 +1,4 @@
 require 'rails'
-require 'rails/generators/base'
 require 'active_support/dependencies'
 
 require "liquid_loader/version"
