@@ -1,16 +1,11 @@
 module LiquidLoader
   module Context
-    def self.included(base)
-      base.extend(ClassMethods)
+    @context = Liquid::Context.new
+    @context['store'] = "bob"
+
+    def render_liquid(template, context = @context)
+      template.render(context)
     end
 
-    module ClassMethods
-      @context = Liquid::Context.new
-      @context['store'] = "bob"
-
-      def render_liquid(template, context = @context)
-        template.render(context)
-      end
-    end
   end
 end
