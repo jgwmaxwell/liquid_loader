@@ -2,9 +2,10 @@ require 'liquid'
 
 module LiquidLoader
   module Context
-    attr_accessor :context
-    @context = Liquid::Context.new
-    @context['store'] = "bob"
+    def initialize
+      @context = Liquid::Context.new
+      @context['store'] = "bob"
+    end
 
     def render_liquid(template, context = @context)
       template.render(context)
