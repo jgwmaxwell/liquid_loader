@@ -18,6 +18,9 @@ module Liquid
 
 
       private
+      def class_name
+        name.camelize
+      end
     end
   end
 end
