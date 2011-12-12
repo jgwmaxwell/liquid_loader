@@ -1,5 +1,5 @@
 require 'liquid'
-require 'active_support/core'
+require 'active_support'
 
 module LiquidLoader
   module Context
