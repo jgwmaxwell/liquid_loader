@@ -3,7 +3,8 @@ require 'liquid'
 module LiquidLoader
   module Context
 
-    def render_liquid(template, context = @context)
+    def render_liquid(template, context = nil)
+      ctx = (context ? context : liq)
       template.render(context)
     end
 
