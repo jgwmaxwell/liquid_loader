@@ -3,7 +3,7 @@ require 'active_support'
 
 module LiquidLoader
   module Context
-    mattr_accessor :context
+    attr_accessor :context
     @context = Liquid::Context.new
     @context['store'] = "bob"
 
