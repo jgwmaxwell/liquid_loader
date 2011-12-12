@@ -1,11 +1,12 @@
 require 'liquid'
-require 'active_support'
 
 module LiquidLoader
   module Context
-    attr_accessor :context
-    @context = Liquid::Context.new
-    @context['store'] = "bob"
+
+    def self.included(base)
+      @context = Liquid::Context.new
+      @context['store'] = "bob"
+    end
 
     def render_liquid(template, context = @context)
       template.render(context)
@@ -21,6 +22,20 @@ module LiquidLoader
           @context[k.to_s.downcase] = v
         end
       end
+    end
+
+    def liq_context(opts = nil)
+      if opts.is_a? Hash
+        opts.each do |k, v|
+          liq[k.to_s.downcase] = v
+        end
+      end
+    end
+
+
+    private
+    def liq
+      @liq ||= Liquid::Context.new
     end
 
   end
