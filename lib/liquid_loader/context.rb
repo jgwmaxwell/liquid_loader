@@ -1,5 +1,6 @@
 module LiquidLoader
   module Context
+    attr_accessor :context
     @context = Liquid::Context.new
     @context['store'] = "bob"
 
