@@ -5,10 +5,8 @@ module LiquidLoader
     end
 
     module ClassMethods
-      def initialize
-        @context = Liquid::Context.new
-        @context['store'] = "bob"
-      end
+      @context = Liquid::Context.new
+      @context['store'] = "bob"
 
       def render(template, context = @context)
         template.render(context)
