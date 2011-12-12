@@ -6,9 +6,15 @@ class <%= class_name %>Drop < Liquid::Drop
 
   <% for att in @attributes %>
 
-    def <%= att %>
-      @drop['<%= att %>']
-    end
+  def <%= att %>
+    @drop['<%= att %>']
+  end
 
+  <% end %>
+
+  <% for assoc in @associations %>
+  def <%= assoc.name %>
+    @drop.<%= assoc.name %>
+  end
   <% end %>
 end
