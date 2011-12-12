@@ -5,7 +5,7 @@ module LiquidLoader
 
     def render_liquid(template, context = nil)
       ctx = (context ? context : liq)
-      template.render(context)
+      template.render(ctx)
     end
 
     def pre_render_liquid(template, destination, context = @context)
