@@ -1,8 +1,9 @@
 require 'liquid'
+require 'active_support/core'
 
 module LiquidLoader
   module Context
-    attr_accessor :context
+    mattr_accessor :context
     @context = Liquid::Context.new
     @context['store'] = "bob"
 
@@ -17,7 +18,7 @@ module LiquidLoader
     def add_context(opts = nil)
       if opts.is_a? Hash
         opts.each do |k, v|
-          context[k.to_s.downcase] = v
+          @context[k.to_s.downcase] = v
         end
       end
     end
