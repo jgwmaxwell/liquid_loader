@@ -7,8 +7,8 @@ module Liquid
 
       desc "This generator creates liquid drops for your models."
       def create_drop
-        create_file "app/drops/_drop.rb", "# Add initialization content here"
-        #puts "This is Rails!"
+        create_file "app/drops/#{name}_drop.rb", "# Add initialization content here"
+        puts "created [app/drops/#{name}_drop.rb]"
       end
     end
   end
