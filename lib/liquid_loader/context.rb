@@ -8,7 +8,7 @@ module LiquidLoader
       @context = Liquid::Context.new
       @context['store'] = "bob"
 
-      def render(template, context = @context)
+      def render_liquid(template, context = @context)
         template.render(context)
       end
     end
