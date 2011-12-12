@@ -4,8 +4,7 @@ module LiquidLoader
   module Context
 
     def self.included(base)
-      @context = Liquid::Context.new
-      @context['store'] = "bob"
+      base.instance_variable_set(:@context, Liquid::Context.new)
     end
 
     def render_liquid(template, context = @context)
