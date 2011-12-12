@@ -1,3 +1,5 @@
+require 'rails/generators/base'
+
 require "liquid_loader/version"
 require 'liquid_loader/liquid_model'
-require 'generators/drop_generator'
+require 'railsgenerators/drop_generator'
