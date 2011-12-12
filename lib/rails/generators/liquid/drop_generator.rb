@@ -10,9 +10,8 @@ module Liquid
 
       desc "This generator creates liquid drops for your models."
 
-      @attributes = file_name.camelize.constantize.attribute_names
-
       def create_drop
+        @attributes = file_name.camelize.constantize.attribute_names
         template "drop.rb", "app/drops/#{file_name}_drop.rb"
       end
 
