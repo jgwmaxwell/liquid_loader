@@ -3,7 +3,7 @@ require 'rails'
 module Liquid
   module Generators
     class DropGenerator < Rails::Generators::NamedBase
-      #source_root File.expand_path('../templates', __FILE__)
+      source_root File.expand_path('templates', __FILE__)
       #argument :name, :type => :string
       #class_option :autodiscover, :type => :boolean, :default => true, :description => "Automatically discover attributes and add them to the Drop."
 
