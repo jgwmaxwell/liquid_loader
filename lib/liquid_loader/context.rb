@@ -7,7 +7,7 @@ module LiquidLoader
       template.render(context)
     end
 
-    def pre_render_liquid(template, destination, context = @context,)
+    def pre_render_liquid(template, destination, context = @context)
       add_context(destination => render_liquid(template, context))
     end
 
