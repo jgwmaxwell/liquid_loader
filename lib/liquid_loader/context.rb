@@ -2,10 +2,9 @@ require 'liquid'
 
 module LiquidLoader
   module Context
-    def initialize
-      @context = Liquid::Context.new
-      @context['store'] = "bob"
-    end
+    attr_accessor :context
+    @context = Liquid::Context.new
+    @context['store'] = "bob"
 
     def render_liquid(template, context = @context)
       template.render(context)
@@ -18,9 +17,10 @@ module LiquidLoader
     def add_context(opts = nil)
       if opts.is_a? Hash
         opts.each do |k, v|
-          @context[k.to_s.downcase] = v
+          self.context[k.to_s.downcase] = v
         end
       end
     end
+
   end
 end
