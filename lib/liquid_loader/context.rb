@@ -1,3 +1,5 @@
+require 'liquid'
+
 module LiquidLoader
   module Context
     attr_accessor :context
