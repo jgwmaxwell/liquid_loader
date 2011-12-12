@@ -2,9 +2,9 @@ require 'rails'
 
 module Liquid
   module Generators
-    class DropGenerator < Rails::Generators::NamedBase
+    class DropGenerator < Rails::Generators::Base
       source_root File.expand_path('../templates', __FILE__)
-
+      argument :name, :type => :string
       class_option :autodiscover, :type => :boolean, :default => true, :description => "Automatically discover attributes and add them to the Drop."
 
 
@@ -18,6 +18,12 @@ module Liquid
 
 
       private
+      def file_name
+        name.underscore
+      end
+      def class_name
+        name.camelize
+      end
       def generate_attributes
           @attributes = class_name.constantize.attribute_names
       end
