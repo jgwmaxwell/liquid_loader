@@ -5,11 +5,11 @@ class <%= class_name %>Drop < Liquid::Drop
   end
 
   <% for att in @attributes %>
-
+  <% unless att.ends_with?("_id") %>
   def <%= att %>
     @drop['<%= att %>']
   end
-
+  <% end %>
   <% end %>
 
   <% for assoc in @associations %>
