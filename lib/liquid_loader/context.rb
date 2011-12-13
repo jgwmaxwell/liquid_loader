@@ -8,8 +8,9 @@ module LiquidLoader
       template.render(ctx)
     end
 
-    def pre_render_liquid(template, destination, context = @context)
-      add_context(destination => render_liquid(template, context))
+    def pre_render_liquid(template, destination, context = nil)
+      ctx = (context ? context : liq)
+      add_context(destination => render_liquid(template, ctx))
     end
 
     def add_context(opts = nil)
