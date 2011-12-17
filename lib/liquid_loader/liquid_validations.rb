@@ -1,4 +1,6 @@
-module LiquidValidations  
+module ActiveRecord
+  module Validations
+    module ClassMethods
   def validates_liquid_of(*attr_names)
     configuration = { :message => I18n.translate('activerecord.errors.messages')[:invalid], :on => :save }
     configuration.update(attr_names.extract_options!)
@@ -59,4 +61,6 @@ private
           gsub('Liquid', '').
           gsub(/terminated with regexp:.+/, 'closed')
   end  
+end
+end
 end
