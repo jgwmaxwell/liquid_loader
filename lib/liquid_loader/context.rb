@@ -3,12 +3,12 @@ require 'liquid'
 module LiquidLoader
   module Context
 
-    def render_liquid(template, context = nil)
+    def render_layout(template, context = nil)
       ctx = (context ? context : liq)
       template.render(ctx)
     end
 
-    def pre_render_liquid(template, destination, context = nil)
+    def render_template(template, destination, context = nil)
       ctx = (context ? context : liq)
       add_context(destination => render_liquid(template, ctx))
     end
