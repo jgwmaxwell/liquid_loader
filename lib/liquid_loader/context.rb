@@ -10,7 +10,7 @@ module LiquidLoader
 
     def render_template(template, destination, context = nil)
       ctx = (context ? context : liq)
-      add_context(destination => render_liquid(template, ctx))
+      add_context(destination => render_layout(template, ctx))
     end
 
     def add_context(opts = nil)
