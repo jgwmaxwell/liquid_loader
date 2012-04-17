@@ -20,6 +20,14 @@ module LiquidLoader
         end
       end
     end
+    
+    def add_register(opts = nil)
+      if opts.is_a? Hash
+        opts.each do |k, v|
+          liq.registers[k.to_sym] = v
+        end
+      end
+    end
 
     private
     def liq
